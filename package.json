@@ -1,0 +1,23 @@
+{
+  "name": "quick-serve",
+  "version": "1.0.0",
+  "description": "Quickly serve files for download in your localnetwork. Software USB Stick alternative.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chitter99/quick-serve.git"
+  },
+  "author": "chitter99",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/chitter99/quick-serve/issues"
+  },
+  "homepage": "https://github.com/chitter99/quick-serve#readme",
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "express": "^4.16.3"
+  }
+}

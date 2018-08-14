@@ -22,6 +22,7 @@ app.get('/', function(req, res) {
 	res.download(args.file);
 	console.log('Served!');
 	if(single) {
+		console.log('Closing now!');
 		process.exit();
 	}
 });
