@@ -13,12 +13,20 @@ parser.addArgument(['-p', '--port'], {
 parser.addArgument(['-s', '--single'], {
 	help: 'Only serve one file. Close after serving.'
 });
+parser.addArgument(['-d', '--direct'], {
+	help: 'Don\'t generate hash as link. Allow download direct from address.'
+});
 var args = parser.parseArgs();
 
 var port = args.port || 5000;
 var single = args.single || false;
 
-app.get('/', function(req, res) {
+var route = '/';
+if(!args.direct) {
+	route += Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+}
+
+app.get(route, function(req, res) {
 	res.download(args.file);
 	console.log('Served!');
 	if(single) {
@@ -29,4 +37,5 @@ app.get('/', function(req, res) {
 
 app.listen(port, function() {
 	console.log('Listening on port ' + port + '!');
+	console.log('Avariable at 127.0.0.1:' + port + '' + route);
 });
